@@ -1,16 +1,19 @@
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { combineReducers } from '@reduxjs/toolkit';
+import { contactsReducer } from './contactsSlice';
+import { filterReducer } from './filterSlice';
 
-import { reducer } from './reducer';
-const { configureStore } = require('@reduxjs/toolkit');
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 
-const persistConfig = {
-  key: 'root',
-  storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, reducer);
-
-export const store = configureStore({ reducer: persistedReducer });
-
-export const persistor = persistStore(store);
+export const reducer = combineReducers({
+  contacts: contactsReducer,
+  filter: filterReducer,
+});
