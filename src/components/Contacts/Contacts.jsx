@@ -11,7 +11,7 @@ export const Contacts = () => {
   const filteredContacts = contacts.filter(({ name }) =>
     name.toLowerCase().includes(filter.toLowerCase())
   );
-  console.log(filter);
+
   return (
     <ul className={css.delete__list}>
       {filteredContacts.map(({ id, name, number }) => (
