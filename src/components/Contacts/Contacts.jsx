@@ -1,15 +1,22 @@
-import React from 'react';
-
 import css from './Contacts.module.css';
+import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
+import { getContacts, getFilter } from 'redux/selectors';
 
 export const Contacts = () => {
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
-  const filteredContacts = contacts.filter(({ name }) =>
-    name.toLowerCase().includes(filter.toLowerCase())
+
+  // ===================Filter=========================
+
+  const filteredContacts = useMemo(
+    () =>
+      contacts.filter(({ name }) =>
+        name.toLowerCase().includes(filter.toLowerCase())
+      ),
+    [contacts, filter]
   );
 
   return (

@@ -13,8 +13,12 @@
   width: 100%;
 }
 .delete__userName {
+  font-weight: 600;
+  font-size: 16px;
   margin-right: auto;
+  color: rgb(255, 255, 255);
 }
+
 .delete__btn {
   content: '';
   border: none;
@@ -26,4 +30,12 @@
   width: 30px;
   height: 30px;
   background-color: transparent;
+  border-radius: 25%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.delete__btn:hover,
+:focus {
+  box-shadow: 2px 3px 4px 4px #807f7f;
+  scale: 0.9;
 }
