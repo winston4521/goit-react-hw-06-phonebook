@@ -1,4 +1,5 @@
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import storage from 'redux-persist/lib/storage';
+import { configureStore } from '@reduxjs/toolkit';
 import { reducer } from './store';
 import {
   persistStore,
@@ -10,8 +11,6 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
-const { configureStore } = require('@reduxjs/toolkit');
 
 const persistConfig = {
   key: 'contacts',
