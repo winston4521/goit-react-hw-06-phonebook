@@ -8,7 +8,7 @@ export const Contacts = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
   const dispatch = useDispatch();
-
+  console.log(contacts);
   // ===================Filter=========================
 
   const filteredContacts = useMemo(
