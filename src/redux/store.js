@@ -1,6 +1,6 @@
 import storage from 'redux-persist/lib/storage';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-
+// import { reducer } from './store';
 import {
   persistStore,
   persistReducer,
@@ -29,7 +29,6 @@ const persistedReducer = persistReducer(persistConfig, reducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {

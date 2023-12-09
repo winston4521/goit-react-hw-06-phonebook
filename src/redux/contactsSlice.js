@@ -1,9 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-  contacts: [],
-  filter: '',
-};
+const initialState = [];
 
 const contactsSlice = createSlice({
   name: 'contacts',
